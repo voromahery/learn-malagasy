@@ -11,7 +11,13 @@ import {
 } from 'react-native';
 // import { styles } from '../constants/globalStyles';
 
-export default function Phrase({value, onChangeText, editable}) {
+export default function Phrase({
+  value,
+  onChangeText,
+  editable,
+  numberOfLines,
+  multiline,
+}) {
   return (
     <SafeAreaView>
       <View style={styles.container}>
@@ -21,8 +27,8 @@ export default function Phrase({value, onChangeText, editable}) {
           value={value}
           placeholder="Enter here"
           placeholderTextColor={styles.placeholder}
-          multiline={true}
-          numberOfLines={4}
+          multiline={multiline}
+          numberOfLines={numberOfLines}
           editable={editable}
           onChangeText={onChangeText}
         />
@@ -37,7 +43,6 @@ const styles = StyleSheet.create({
     marginBottom: 22,
   },
   textarea: {
-    opacity: 1,
     backgroundColor: '#FFFFFF',
     textAlign: 'center',
     borderWidth: 1,
@@ -45,6 +50,8 @@ const styles = StyleSheet.create({
     borderRadius: 3,
     color: '#111827',
     fontSize: 20,
+    opacity: 1,
+    height: 100,
   },
   placeholder: {
     opacity: 0.5,
