@@ -9,6 +9,7 @@ export default function PhraseTextarea({
   onChange = () => null,
   darkMode,
 }) {
+  console.log(phrase);
   return (
     <SafeAreaView>
       <View style={styles.container}>
