@@ -7,7 +7,7 @@ export default function PhraseTextarea({
   phrase,
   editable,
   onChange = () => null,
-  darkMode,
+  darkMode = true,
 }) {
   return (
     <SafeAreaView>
