@@ -9,15 +9,20 @@ export default function PhraseTextarea({
   onChange = () => null,
   darkMode,
 }) {
-  console.log(phrase);
   return (
     <SafeAreaView>
       <View style={styles.container}>
         <TextInput
-          style={darkMode ? styles.darkTextarea : styles.lightTextarea}
+          style={
+            darkMode
+              ? [styles.darkTextarea, styles.commonStyle]
+              : [styles.lightTextarea, styles.commonStyle]
+          }
           value={phrase}
           placeholder="Enter here"
-          placeholderTextColor={'rgba(17, 24, 39, 0.5)'}
+          placeholderTextColor={
+            darkMode ? 'rgba(255,255,255,0.5)' : 'rgba(17, 24, 39, 0.5)'
+          }
           multiline={true}
           editable={editable}
           onChangeText={onChange}
@@ -32,10 +37,7 @@ const styles = StyleSheet.create({
     marginTop: 22,
     marginBottom: 22,
   },
-  lightTextarea: {
-    backgroundColor: '#FFFFFF',
-    borderColor: '#E5E5E5',
-    color: '#111827',
+  commonStyle: {
     fontSize: 20,
     opacity: 1,
     height: 100,
@@ -43,15 +45,14 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderRadius: 3,
   },
+  lightTextarea: {
+    backgroundColor: '#FFFFFF',
+    borderColor: '#E5E5E5',
+    color: '#111827',
+  },
   darkTextarea: {
     backgroundColor: '#111827',
     color: '#FFFFFF',
     borderColor: '#1F232C',
-    fontSize: 20,
-    opacity: 1,
-    height: 100,
-    textAlign: 'center',
-    borderWidth: 1,
-    borderRadius: 3,
   },
 });

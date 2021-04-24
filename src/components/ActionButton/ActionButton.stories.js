@@ -1,45 +1,31 @@
 import * as React from 'react';
 import {View} from 'react-native';
 import {storiesOf} from '@storybook/react-native';
+import CenterView from '../../../storybook/stories/CenterView/index';
 
 import ActionButton from './ActionButton';
 storiesOf('Action buttons', module)
-  .addDecorator(story => <View>{story()}</View>)
-  .add('Clickable button', () => (
-    <View>
-      <ActionButton
-        text={'Learn'}
-        buttonAction={() => alert('Learn malagasy')}
-      />
-      <ActionButton
-        text={'Pick'}
-        buttonAction={() => alert('An item is picked')}
-      />
-      <ActionButton text={'Correct'} buttonAction={() => alert('Correct')} />
-      <ActionButton text={'Wrong'} buttonAction={() => alert('Wrong')} />
-    </View>
+  .addDecorator(story => (
+    <CenterView style={{padding: 23}}>{story()}</CenterView>
   ))
-  .add('Disabled button', () => (
-    <View>
-      <ActionButton
-        text={'Learn'}
-        disabled={true}
-        buttonAction={() => alert('Learn malagasy')}
-      />
-      <ActionButton
-        text={'Pick'}
-        disabled={true}
-        buttonAction={() => alert('An item is picked')}
-      />
-      <ActionButton
-        text={'Correct'}
-        disabled={true}
-        buttonAction={() => alert('Correct')}
-      />
-      <ActionButton
-        text={'Wrong'}
-        disabled={true}
-        buttonAction={() => alert('Wrong')}
-      />
-    </View>
+  .add('Learn button', () => (
+    <ActionButton text={'Learn'} buttonAction={() => alert('Learn malagasy')} />
+  ))
+  .add('Pick button', () => (
+    <ActionButton
+      text={'Pick'}
+      buttonAction={() => alert('An item is picked')}
+    />
+  ))
+  .add('Correct button', () => (
+    <ActionButton
+      text={'Correct'}
+      buttonAction={() => alert('You clicked the correct button')}
+    />
+  ))
+  .add('Wrong button', () => (
+    <ActionButton
+      text={'Wrong'}
+      buttonAction={() => alert('You clicked the wrong button')}
+    />
   ));

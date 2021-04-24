@@ -1,4 +1,3 @@
-// components/Task.js
 import * as React from 'react';
 import {
   View,
@@ -6,10 +5,9 @@ import {
   Image,
   StyleSheet,
   SafeAreaView,
-  TouchableHighlight,
   TouchableOpacity,
 } from 'react-native';
-// import { styles } from '../constants/globalStyles';
+
 const rightArrow = require('../../icons/right-arrow.png');
 const correctIcon = require('../../icons/correct-icon.png');
 const wrongIcon = require('../../icons/wrong-icon.png');
@@ -35,10 +33,7 @@ export default function ActionButton({text, buttonAction, disabled}) {
 
   return (
     <SafeAreaView>
-      <TouchableOpacity
-        onPress={buttonAction}
-        style={disabled && styles.disabledButton}
-        disabled={disabled}>
+      <TouchableOpacity onPress={buttonAction} disabled={disabled}>
         <View style={styles.wrapper}>
           <Text style={[styles.commonTextStyle, textStyle]}>{text}</Text>
           <Image
@@ -79,9 +74,6 @@ const styles = StyleSheet.create({
   },
   wrongText: {
     color: '#D4068E',
-  },
-  disabledButton: {
-    opacity: 0.5,
   },
   wrapper: {
     display: 'flex',
