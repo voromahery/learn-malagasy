@@ -4,7 +4,7 @@ import {storiesOf} from '@storybook/react-native';
 import CenterView from '../../../storybook/stories/CenterView/index';
 
 import ActionButton from './ActionButton';
-storiesOf('Action buttons', module)
+storiesOf('Action button', module)
   .addDecorator(story => (
     <CenterView style={{padding: 23}}>{story()}</CenterView>
   ))

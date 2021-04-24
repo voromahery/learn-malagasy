@@ -16,7 +16,7 @@ function Edit() {
   );
 }
 
-storiesOf('PhraseTextarea', module)
+storiesOf('Phrase Textarea', module)
   .addDecorator(story => <View style={{padding: 23}}>{story()}</View>)
   .add('Editable input', () => <Edit />)
   .add('With a default value and disabled', () => (
