@@ -23,6 +23,7 @@ export default function PhraseTextarea({
           placeholderTextColor={
             darkMode ? 'rgba(255,255,255,0.5)' : 'rgba(17, 24, 39, 0.5)'
           }
+          darkMode={darkMode}
           multiline={true}
           editable={editable}
           onChangeText={onChange}
