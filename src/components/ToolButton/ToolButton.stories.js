@@ -5,37 +5,37 @@ import {storiesOf} from '@storybook/react-native';
 
 import ToolButton from './ToolButton';
 import CenterView from '../../../storybook/stories/CenterView/index';
-const checkedIcon = require('../../icons/check-icon.png');
-const doubleCheckIcon = require('../../icons/double-check-icon.png');
-const leftArrowIcon = require('../../icons/left-arrow.png');
-const addIcon = require('../../icons/add-icon.png');
-const screenModeIcon = require('../../icons/screen-mode-icon.png');
+import CheckedIcon from '../../icons/check-icon.svg';
+import DoubleCheckIcon from '../../icons/double-check-icon.svg';
+import LeftArrowIcon from '../../icons/left-arrow.svg';
+import AddIcon from '../../icons/add-icon.svg';
+import ScreenModeIcon from '../../icons/screen-mode-icon.svg';
 storiesOf('Tool button', module)
   .addDecorator(story => <CenterView>{story()}</CenterView>)
   .add('With add icon', () => (
     <ToolButton
-      buttonIcon={addIcon}
+      buttonIcon={AddIcon}
       toolAction={() => alert('Added an item')}
     />
   ))
   .add('With check icon', () => (
-    <ToolButton buttonIcon={checkedIcon} toolAction={() => alert('Checked')} />
+    <ToolButton buttonIcon={CheckedIcon} toolAction={() => alert('Checked')} />
   ))
   .add('With double check icon', () => (
     <ToolButton
-      buttonIcon={doubleCheckIcon}
+      buttonIcon={DoubleCheckIcon}
       toolAction={() => alert('Doubled checked')}
     />
   ))
   .add('With left arrow icon', () => (
     <ToolButton
-      buttonIcon={leftArrowIcon}
+      buttonIcon={LeftArrowIcon}
       toolAction={() => alert('Go back')}
     />
   ))
   .add('With screen mode icon', () => (
     <ToolButton
-      buttonIcon={screenModeIcon}
+      buttonIcon={ScreenModeIcon}
       toolAction={() => alert('Swiched mode')}
     />
   ));

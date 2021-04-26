@@ -4,14 +4,14 @@ import {View, StyleSheet, Image, TouchableOpacity} from 'react-native';
 // import { styles } from '../constants/globalStyles';
 
 export default function ToolButton({toolAction, buttonIcon, darkMode}) {
+  let ButtonIcon = buttonIcon;
   return (
     <View>
       <TouchableOpacity onPress={toolAction} style={styles.buttonStyle}>
-        <Image
-          source={buttonIcon}
-          resizeMode="contain"
+        <ButtonIcon
+          buttonIcon={buttonIcon}
           darkMode={darkMode}
-          style={darkMode && styles.iconStyleDarkMode}
+          color={darkMode ? '#111827' : '#FFFFFF'}
         />
       </TouchableOpacity>
     </View>
@@ -26,8 +26,5 @@ const styles = StyleSheet.create({
     height: 40,
     alignItems: 'center',
     justifyContent: 'center',
-  },
-  iconStyleDarkMode: {
-    tintColor: '#111827',
   },
 });
