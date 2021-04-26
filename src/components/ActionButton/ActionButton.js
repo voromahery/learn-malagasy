@@ -8,27 +8,27 @@ import {
   TouchableOpacity,
 } from 'react-native';
 
-const rightArrow = require('../../icons/right-arrow.png');
-const correctIcon = require('../../icons/correct-icon.png');
-const wrongIcon = require('../../icons/wrong-icon.png');
+import rightArrow from '../../icons/right-arrow.svg';
+import correctIcon from '../../icons/check-icon.svg';
+import wrongIcon from '../../icons/wrong-icon.svg';
 
 export default function ActionButton({text, buttonAction, disabled}) {
-  let buttonIcon;
-  let iconStyle;
+  let ButtonIcon;
+  let iconColor;
   let textStyle;
 
   if (text === 'Correct') {
-    buttonIcon = correctIcon;
+    ButtonIcon = correctIcon;
     textStyle = styles.correctText;
-    iconStyle = styles.correctIcon;
+    iconColor = '#06D440';
   } else if (text === 'Wrong') {
-    buttonIcon = wrongIcon;
+    ButtonIcon = wrongIcon;
     textStyle = styles.wrongText;
-    iconStyle = styles.wrongIcon;
+    iconColor = '#D4068E';
   } else {
-    buttonIcon = rightArrow;
+    ButtonIcon = rightArrow;
     textStyle = styles.defaultText;
-    iconStyle = styles.defaultIcon;
+    iconColor = '#06B6D4';
   }
 
   return (
@@ -36,11 +36,7 @@ export default function ActionButton({text, buttonAction, disabled}) {
       <TouchableOpacity onPress={buttonAction} disabled={disabled}>
         <View style={styles.wrapper}>
           <Text style={[styles.commonTextStyle, textStyle]}>{text}</Text>
-          <Image
-            source={buttonIcon}
-            style={[styles.iconSize, iconStyle]}
-            resizeMode="contain"
-          />
+          <ButtonIcon width="16" height="16" color={iconColor} />
         </View>
       </TouchableOpacity>
     </SafeAreaView>
@@ -48,19 +44,6 @@ export default function ActionButton({text, buttonAction, disabled}) {
 }
 
 const styles = StyleSheet.create({
-  defaultIcon: {
-    tintColor: '#06B6D4',
-  },
-  correctIcon: {
-    tintColor: '#06D440',
-  },
-  wrongIcon: {
-    tintColor: '#D4068E',
-  },
-  iconSize: {
-    width: 16,
-    height: 16,
-  },
   commonTextStyle: {
     fontWeight: '600',
     fontSize: 16,

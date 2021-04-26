@@ -1,9 +1,9 @@
 // components/Task.js
 import * as React from 'react';
-import {View, StyleSheet, Text, Image, TouchableOpacity} from 'react-native';
+import {View, StyleSheet, Text, TouchableOpacity} from 'react-native';
 // import { styles } from '../constants/globalStyles';
 
-const switchIcon = require('../../icons/switch-icon.png');
+import SwitcherIcon from '../../icons/switcher-icon.svg';
 
 export default function SwitcherButton({
   selectedLanguage,
@@ -23,16 +23,12 @@ export default function SwitcherButton({
           }>
           {selectedLanguage}
         </Text>
-        <Image
-          darkMode={darkMode}
-          source={switchIcon}
-          style={
-            darkMode
-              ? [styles.iconStyleDarkMode, styles.iconStyle]
-              : styles.iconStyle
-          }
-          resizeMode="contain"
-        />
+        <View style={styles.wrapper}>
+          <SwitcherIcon
+            darkMode={darkMode}
+            color={darkMode ? '#111827' : '#FFFFFF'}
+          />
+        </View>
         <Text
           darkMode={darkMode}
           style={
@@ -69,10 +65,7 @@ const styles = StyleSheet.create({
   darkModeText: {
     color: '#111827',
   },
-  iconStyleDarkMode: {
-    tintColor: '#111827',
-  },
-  iconStyle: {
+  wrapper: {
     marginLeft: 5.93,
     marginRight: 5.79,
   },
