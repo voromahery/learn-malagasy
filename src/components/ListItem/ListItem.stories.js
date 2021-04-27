@@ -6,7 +6,7 @@ import {storiesOf} from '@storybook/react-native';
 import ListItem from './ListItem';
 
 storiesOf('List item', module)
-  .addDecorator(story => <View style={{padding: 32}}>{story()}</View>)
+  .addDecorator(story => <View style={{padding: 23}}>{story()}</View>)
   .add('Learn item', () => (
     <ListItem
       text={'10 words and phrases'}

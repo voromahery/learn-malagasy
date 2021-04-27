@@ -50,7 +50,6 @@ const styles = StyleSheet.create({
     paddingBottom: 18,
     paddingLeft: 16,
     paddingRight: 20,
-    borderWidth: 1,
   },
   defaultWrapper: {
     backgroundColor: '#FFFFFF',
@@ -64,10 +63,8 @@ const styles = StyleSheet.create({
   },
   defaultText: {
     color: '#111827',
-    borderColor: '#E5E5E5',
   },
   darkModeText: {
     color: '#FFFFFF',
-    borderColor: '#1F232C',
   },
 });
