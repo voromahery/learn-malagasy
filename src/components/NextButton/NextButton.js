@@ -4,24 +4,21 @@ import {Text, View, Button, StyleSheet, TouchableOpacity} from 'react-native';
 // import { styles } from '../constants/globalStyles';
 
 export default function NextButton({buttonText, disabled, handleNext}) {
+  const container = disabled
+    ? [styles.commonButtonStyle, styles.disabledButton]
+    : [styles.commonButtonStyle, styles.defaultButton];
+
+  const textStyle = disabled
+    ? [styles.disabledText, styles.commonTextStyle]
+    : [styles.defaultText, styles.commonTextStyle];
+
   return (
     <View style={{alignSelf: 'center'}}>
       <TouchableOpacity
-        style={
-          disabled
-            ? [styles.commonButtonStyle, styles.disabledButton]
-            : [styles.commonButtonStyle, styles.defaultButton]
-        }
+        style={container}
         disabled={disabled}
         onPress={handleNext}>
-        <Text
-          style={
-            disabled
-              ? [styles.disabledText, styles.commonTextStyle]
-              : [styles.defaultText, styles.commonTextStyle]
-          }>
-          {buttonText}
-        </Text>
+        <Text style={textStyle}>{buttonText}</Text>
       </TouchableOpacity>
     </View>
   );
