@@ -1,18 +1,11 @@
 import * as React from 'react';
-import {
-  View,
-  Text,
-  Image,
-  StyleSheet,
-  SafeAreaView,
-  TouchableOpacity,
-} from 'react-native';
+import {View, Text, StyleSheet, SafeAreaView} from 'react-native';
 
 import rightArrow from '../../icons/right-arrow.svg';
 import correctIcon from '../../icons/check-icon.svg';
 import wrongIcon from '../../icons/wrong-icon.svg';
 
-export default function ActionButton({text, buttonAction, disabled}) {
+export default function ActionButton({text}) {
   let ButtonIcon;
   let iconColor;
   let textStyle;
@@ -33,12 +26,10 @@ export default function ActionButton({text, buttonAction, disabled}) {
 
   return (
     <SafeAreaView>
-      <TouchableOpacity onPress={buttonAction} disabled={disabled}>
-        <View style={styles.wrapper}>
-          <Text style={[styles.commonTextStyle, textStyle]}>{text}</Text>
-          <ButtonIcon width="16" height="16" color={iconColor} />
-        </View>
-      </TouchableOpacity>
+      <View style={styles.wrapper}>
+        <Text style={[styles.commonTextStyle, textStyle]}>{text}</Text>
+        <ButtonIcon width="16" height="16" color={iconColor} />
+      </View>
     </SafeAreaView>
   );
 }

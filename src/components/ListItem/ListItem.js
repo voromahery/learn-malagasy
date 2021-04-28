@@ -14,7 +14,6 @@ export default function ListItem({
   darkMode,
   text,
   buttonText,
-  buttonAction,
   handlePress,
   disabled,
 }) {
@@ -33,7 +32,7 @@ export default function ListItem({
           <Text darkMode={darkMode} style={textStyle}>
             {text}
           </Text>
-          <ActionButton text={buttonText} buttonAction={buttonAction} />
+          <ActionButton text={buttonText} />
         </View>
       </TouchableOpacity>
     </SafeAreaView>
