@@ -8,24 +8,7 @@ storiesOf('Action button', module)
   .addDecorator(story => (
     <CenterView style={{padding: 23}}>{story()}</CenterView>
   ))
-  .add('Learn button', () => (
-    <ActionButton text={'Learn'} buttonAction={() => alert('Learn malagasy')} />
-  ))
-  .add('Pick button', () => (
-    <ActionButton
-      text={'Pick'}
-      buttonAction={() => alert('An item is picked')}
-    />
-  ))
-  .add('Correct button', () => (
-    <ActionButton
-      text={'Correct'}
-      buttonAction={() => alert('You clicked the correct button')}
-    />
-  ))
-  .add('Wrong button', () => (
-    <ActionButton
-      text={'Wrong'}
-      buttonAction={() => alert('You clicked the wrong button')}
-    />
-  ));
+  .add('Learn button', () => <ActionButton text={'Learn'} />)
+  .add('Pick button', () => <ActionButton text={'Pick'} />)
+  .add('Correct button', () => <ActionButton text={'Correct'} />)
+  .add('Wrong button', () => <ActionButton text={'Wrong'} />);

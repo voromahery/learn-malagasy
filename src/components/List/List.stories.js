@@ -23,7 +23,6 @@ storiesOf('List', module)
           key={item.id}
           text={item.title}
           buttonText={'Learn'}
-          buttonAction={() => alert(item.title)}
           handlePress={() => alert(item.title)}
         />
       )}
@@ -39,7 +38,6 @@ storiesOf('List', module)
           key={item.id}
           text={item.title}
           buttonText={item.buttonText}
-          buttonAction={() => alert(item.title)}
           handlePress={() => alert(item.title)}
         />
       )}
