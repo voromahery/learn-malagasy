@@ -9,15 +9,15 @@ export default function PhraseTextarea({
   onChange = () => null,
   darkMode,
 }) {
+  const container = darkMode
+    ? [styles.darkTextarea, styles.commonStyle]
+    : [styles.lightTextarea, styles.commonStyle];
+
   return (
     <SafeAreaView>
       <View style={styles.container}>
         <TextInput
-          style={
-            darkMode
-              ? [styles.darkTextarea, styles.commonStyle]
-              : [styles.lightTextarea, styles.commonStyle]
-          }
+          style={container}
           value={phrase}
           placeholder="Enter here"
           placeholderTextColor={
