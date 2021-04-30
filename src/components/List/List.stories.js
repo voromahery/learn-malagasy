@@ -16,7 +16,7 @@ storiesOf('List', module)
   .addDecorator(story => <View style={{padding: 23}}>{story()}</View>)
   .add('Learning list', () => (
     <List
-      text={'Select a category:'}
+      headingText={'Select a category:'}
       sections={[{data: dataExample}]}
       renderItem={({item}) => (
         <ListItem

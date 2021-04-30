@@ -5,14 +5,20 @@ import SectionHeader from '../SectionHeading/SectionHeading';
 import ListItem from '../ListItem/ListItem';
 // import { styles } from '../constants/globalStyles';
 
-export default function List({text, darkMode, sections, renderItem, disabled}) {
+export default function List({
+  headingText,
+  darkMode,
+  sections,
+  renderItem,
+  disabled,
+}) {
   const container = darkMode
     ? [styles.container, styles.darkModeContainer]
     : [styles.container, styles.defaultContainer];
 
   return (
     <SafeAreaView>
-      <SectionHeader text={text} darkMode={darkMode} />
+      <SectionHeader headingText={headingText} darkMode={darkMode} />
       <SectionList
         sections={sections}
         darkMode={darkMode}
