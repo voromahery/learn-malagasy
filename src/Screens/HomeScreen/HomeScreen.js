@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import {SafeAreaView, View, Text, StyleSheet} from 'react-native';
-import {switchLanguage} from '../../actions/language';
+import {switchLanguage} from '../../redux/actions/language';
 
 import ToolButton from '../../components/ToolButton/ToolButton';
 import List from '../../components/List/List';
@@ -12,8 +12,8 @@ import DoubleCheckIcon from '../../icons/double-check-icon.svg';
 import AddIcon from '../../icons/add-icon.svg';
 import ScreenModeIcon from '../../icons/screen-mode-icon.svg';
 
-import {LANGUAGE_NAMES, getAllCategoriesNames} from '../../data/dataUtils';
-
+import {LANGUAGE_NAMES} from '../../data/dataUtils';
+import categoriesData from '../../data/categories.json';
 export default function HomeScreen() {
   const dispatch = useDispatch();
 
@@ -77,18 +77,25 @@ export default function HomeScreen() {
         <Text></Text>
         <List
           headingText={headingText}
-          // sections={getAllCategoriesNames('en')}
+          sections={[
+            {
+              data: categoriesData.categories.map(
+                cat => cat.name[selectedLanguage],
+              ),
+            },
+          ]}
+          keyExtractor={item => item.index}
           //   darkMode={darkMode}
-          //   disabled={disabled}
-          renderItem={item => (
-            <ListItem
-            //   disabled={true}
-            //   key={item}
-            // text={item}
-            //   buttonText={item.buttonText}
-            //   handlePress={() => alert(item.title)}
-            />
-          )}
+          renderItem={item => {
+            console.log(item.id, item.index);
+            return (
+              <ListItem
+                text={item.item}
+                buttonText={switcher ? 'Hianatra' : 'Learn'}
+                handlePress={() => alert(item.item)}
+              />
+            );
+          }}
         />
       </View>
     </SafeAreaView>

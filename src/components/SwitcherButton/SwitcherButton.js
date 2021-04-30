@@ -58,6 +58,7 @@ const styles = StyleSheet.create({
   commonTextStyle: {
     fontSize: 13,
     lineHeight: 16,
+    textTransform: 'uppercase',
   },
   defaultText: {
     color: '#FFFFFF',
