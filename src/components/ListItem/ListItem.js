@@ -62,6 +62,8 @@ const styles = StyleSheet.create({
   textStyle: {
     fontSize: 16,
     lineHeight: 19,
+    flexWrap: 'wrap',
+    flex: 1,
   },
   defaultText: {
     color: '#111827',
