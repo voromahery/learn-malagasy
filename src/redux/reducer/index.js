@@ -1,6 +1,6 @@
 import {combineReducers} from 'redux';
-import dataReducer from './dataReducer';
+import categoriesList from './categoryReducer';
 import switchLanguage from './languageReducer';
 
-const rootReducer = combineReducers({dataReducer, switchLanguage});
+const rootReducer = combineReducers({categoriesList, switchLanguage});
 export default rootReducer;

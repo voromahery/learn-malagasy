@@ -18,6 +18,7 @@ storiesOf('List', module)
     <List
       headingText={'Select a category:'}
       sections={[{data: dataExample}]}
+      keyExtractor={item => item.id}
       renderItem={({item}) => (
         <ListItem
           key={item.id}
@@ -30,7 +31,7 @@ storiesOf('List', module)
   ))
   .add('Learning incorrect', () => (
     <List
-      text={'Pick a solution:'}
+      headingText={'Pick a solution:'}
       sections={[{data: dataExample}]}
       renderItem={({item}) => (
         <ListItem

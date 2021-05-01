@@ -11,6 +11,7 @@ export default function List({
   sections,
   renderItem,
   disabled,
+  keyExtractor,
 }) {
   const container = darkMode
     ? [styles.container, styles.darkModeContainer]
@@ -22,6 +23,7 @@ export default function List({
       <SectionList
         sections={sections}
         darkMode={darkMode}
+        keyExtractor={keyExtractor}
         style={container}
         disabled={disabled}
         renderItem={renderItem}
