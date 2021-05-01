@@ -14,7 +14,8 @@ import ScreenModeIcon from '../../icons/screen-mode-icon.svg';
 
 import {LANGUAGE_NAMES} from '../../data/dataUtils';
 import categoriesData from '../../data/categories.json';
-export default function HomeScreen() {
+
+export default function HomeScreen({navigation}) {
   const dispatch = useDispatch();
   const [selectedLanguage, setSelectedLanguage] = useState(LANGUAGE_NAMES.EN);
   const [translatorLanguage, setTranslatorLanguage] = useState(
@@ -24,7 +25,7 @@ export default function HomeScreen() {
 
   const switcher = useSelector(state => state.switchLanguage);
 
-  console.log(categoriesData);
+  // console.log(categoriesData);
 
   function changeLanguage() {
     if (switcher) {
@@ -84,7 +85,9 @@ export default function HomeScreen() {
               <ListItem
                 text={item.name[selectedLanguage]}
                 buttonText={switcher ? 'Hianatra' : 'Learn'}
-                handlePress={() => alert(item.name[selectedLanguage])}
+                handlePress={() =>
+                  navigation.navigate('LearningScreen', {item})
+                }
               />
             );
           }}

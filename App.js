@@ -26,6 +26,7 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 import HomeScreen from './src/Screens/HomeScreen/HomeScreen';
+import Navigation from './src/Navigation';
 
 const Section = ({children, title}): Node => {
   const isDarkMode = useColorScheme() === 'dark';
@@ -63,6 +64,7 @@ const App: () => Node = () => {
   return (
     <SafeAreaView>
       <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
+      {/* <Navigation /> */}
       <HomeScreen />
     </SafeAreaView>
   );
