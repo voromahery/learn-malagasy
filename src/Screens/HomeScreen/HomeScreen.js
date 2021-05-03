@@ -14,8 +14,11 @@ import ScreenModeIcon from '../../icons/screen-mode-icon.svg';
 
 import {LANGUAGE_NAMES} from '../../data/dataUtils';
 import categoriesData from '../../data/categories.json';
+import {useNavigation} from '@react-navigation/native';
 
-export default function HomeScreen({navigation}) {
+function HomeScreen({navigation}) {
+  // console.log(navigation, 'NAVIGATION');
+  // const navigation = useNavigation();
   const dispatch = useDispatch();
   const [selectedLanguage, setSelectedLanguage] = useState(LANGUAGE_NAMES.EN);
   const [translatorLanguage, setTranslatorLanguage] = useState(
@@ -39,6 +42,11 @@ export default function HomeScreen({navigation}) {
     }
     dispatch(switchLanguage(true));
   }
+
+  // function screenNavigation({item}) {
+  //   navigation?.navigate('Learning');
+  //   console.log(item, 'NAVIGATED');
+  // }
 
   return (
     <SafeAreaView style={styles.container}>
@@ -78,7 +86,7 @@ export default function HomeScreen({navigation}) {
       <View>
         <List
           headingText={headingText}
-          sections={[{data: categoriesData.categories}]}
+          data={categoriesData.categories}
           // darkMode={darkMode}
           renderItem={({item}) => {
             return (
@@ -114,3 +122,5 @@ const styles = StyleSheet.create({
     marginRight: 10,
   },
 });
+
+export default HomeScreen;
