@@ -1,7 +1,6 @@
 import React, {useState} from 'react';
 import {View, StyleSheet, Text, SafeAreaView} from 'react-native';
-import {useDispatch, useSelector} from 'react-redux';
-import {switchLanguage} from '../../redux/actions/language';
+import {utilities} from '../../utils/utils';
 
 import PhraseTextarea from '../../components/PhraseTextarea/PhraseTextArea';
 import SectionHeading from '../../components/SectionHeading/SectionHeading';
@@ -14,33 +13,44 @@ import ToolButton from '../../components/ToolButton/ToolButton';
 
 import ScreenModeIcon from '../../icons/screen-mode-icon.svg';
 import BackIcon from '../../icons/left-arrow.svg';
+import {useDispatch} from 'react-redux';
 
-import {LANGUAGE_NAMES} from '../../data/dataUtils';
+function LearningScreen({route, navigation}) {
+  const {
+    languageOption,
+    selectedLanguage,
+    translatorLanguage,
+    setSelectedLanguage,
+    setTranslatorLanguage,
+    answers,
+    switcher,
+    switchLanguage,
+    learningLogics,
+  } = utilities();
 
-function LearningScreen({route}) {
   const dispatch = useDispatch();
-  const [selectedLanguage, setSelectedLanguage] = useState(LANGUAGE_NAMES.EN);
-  const [translatorLanguage, setTranslatorLanguage] = useState(
-    LANGUAGE_NAMES.MG,
-  );
   const [headingText, setHeadingText] = useState('Category:');
   const [subHeading, setSubHeading] = useState('The phrase:');
   const [testHeading, setTestHeading] = useState('Pick a solution:');
-  const switcher = useSelector(state => state.switchLanguage);
+  const [buttonName, setButtonName] = useState('Next');
+
+  const optionItem = route.params.item;
 
   function changeLanguage() {
     if (switcher) {
-      setSelectedLanguage(LANGUAGE_NAMES.EN);
-      setTranslatorLanguage(LANGUAGE_NAMES.MG);
+      setSelectedLanguage(languageOption.EN);
+      setTranslatorLanguage(languageOption.MG);
       setHeadingText('Category:');
       setSubHeading('The phrase:');
       setTestHeading('Pick a solution:');
+      setButtonName('Next');
     } else {
-      setSelectedLanguage(LANGUAGE_NAMES.MG);
-      setTranslatorLanguage(LANGUAGE_NAMES.EN);
+      setSelectedLanguage(languageOption.MG);
+      setTranslatorLanguage(languageOption.EN);
       setHeadingText('Karazana:');
-      setSubHeading('Ilay fehezanteny');
+      setSubHeading('Ny fehezanteny');
       setTestHeading('Hisafidy valiny:');
+      setButtonName('Manaraka');
     }
     dispatch(switchLanguage(true));
   }
@@ -48,7 +58,10 @@ function LearningScreen({route}) {
     <SafeAreaView style={styles.container}>
       <View style={[styles.button, styles.row]}>
         <View style={styles.buttonSpace}>
-          <ToolButton buttonIcon={BackIcon} />
+          <ToolButton
+            buttonIcon={BackIcon}
+            toolAction={() => navigation.goBack()}
+          />
         </View>
         <View style={styles.buttonSpace}>
           <ToolButton buttonIcon={ScreenModeIcon} />
@@ -64,22 +77,31 @@ function LearningScreen({route}) {
       <View style={styles.row}>
         <SectionHeading headingText={headingText} />
         <View style={{marginBottom: 15, marginLeft: 2}}>
-          <Text style={styles.headingTitle}>Number</Text>
+          <Text style={styles.headingTitle}>
+            {optionItem.name[selectedLanguage]}
+          </Text>
         </View>
       </View>
       <View style={{marginBottom: 37}}>
         <SectionHeading headingText={subHeading} />
-        <PhraseTextarea phrase={'UNSET YET'} />
+        <PhraseTextarea
+          // phrase={randomPhrase.name[selectedLanguage]}
+          editable={false}
+        />
       </View>
       <View style={{marginBottom: 52}}>
         <List
           headingText={testHeading}
+          data={answers}
           renderItem={({item}) => (
-            <ListItem buttonText={switcher ? 'Haka' : 'Pick'} />
+            <ListItem
+              text={item.answer[selectedLanguage]}
+              buttonText={switcher ? 'Haka' : 'Pick'}
+            />
           )}
         />
       </View>
-      <NextButton buttonText={'Next'} onPress={() => alert('Next')} />
+      <NextButton buttonText={buttonName} handleNext={learningLogics} />
     </SafeAreaView>
   );
 }
@@ -105,6 +127,7 @@ const styles = StyleSheet.create({
     paddingTop: 35,
     paddingBottom: 66,
     paddingLeft: 23,
+    paddingRight: 23,
   },
 
   buttonSpace: {

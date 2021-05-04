@@ -14,11 +14,8 @@ import ScreenModeIcon from '../../icons/screen-mode-icon.svg';
 
 import {LANGUAGE_NAMES} from '../../data/dataUtils';
 import categoriesData from '../../data/categories.json';
-import {useNavigation} from '@react-navigation/native';
 
 function HomeScreen({navigation}) {
-  // console.log(navigation, 'NAVIGATION');
-  // const navigation = useNavigation();
   const dispatch = useDispatch();
   const [selectedLanguage, setSelectedLanguage] = useState(LANGUAGE_NAMES.EN);
   const [translatorLanguage, setTranslatorLanguage] = useState(
@@ -27,8 +24,6 @@ function HomeScreen({navigation}) {
   const [headingText, setHeadingText] = useState('Select a category:');
 
   const switcher = useSelector(state => state.switchLanguage);
-
-  // console.log(categoriesData);
 
   function changeLanguage() {
     if (switcher) {
@@ -42,11 +37,6 @@ function HomeScreen({navigation}) {
     }
     dispatch(switchLanguage(true));
   }
-
-  // function screenNavigation({item}) {
-  //   navigation?.navigate('Learning');
-  //   console.log(item, 'NAVIGATED');
-  // }
 
   return (
     <SafeAreaView style={styles.container}>
