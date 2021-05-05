@@ -2,8 +2,6 @@ import React, {useCallback, useEffect, useState} from 'react';
 
 import Storybook from './storybook';
 import App from './App';
-import {Provider} from 'react-redux';
-import store from './store';
 
 const Root = () => {
   const [storybookActive, setStorybookActive] = useState(false);
@@ -20,13 +18,7 @@ const Root = () => {
     }
   }, [toggleStorybook]);
 
-  return storybookActive ? (
-    <Storybook />
-  ) : (
-    <Provider store={store}>
-      <App />
-    </Provider>
-  );
+  return storybookActive ? <Storybook /> : <App />;
 };
 
 export default Root;

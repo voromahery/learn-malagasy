@@ -1,6 +1,6 @@
 // components/Task.js
 import * as React from 'react';
-import {SafeAreaView, SectionList, StyleSheet} from 'react-native';
+import {SafeAreaView, SectionList, FlatList, StyleSheet} from 'react-native';
 import SectionHeader from '../SectionHeading/SectionHeading';
 import ListItem from '../ListItem/ListItem';
 // import { styles } from '../constants/globalStyles';
@@ -8,7 +8,7 @@ import ListItem from '../ListItem/ListItem';
 export default function List({
   headingText,
   darkMode,
-  sections,
+  data,
   renderItem,
   disabled,
   keyExtractor,
@@ -20,13 +20,14 @@ export default function List({
   return (
     <SafeAreaView>
       <SectionHeader headingText={headingText} darkMode={darkMode} />
-      <SectionList
-        sections={sections}
+      <FlatList
+        data={data}
         darkMode={darkMode}
         keyExtractor={keyExtractor}
         style={container}
         disabled={disabled}
         renderItem={renderItem}
+        keyExtractor={item => item.id}
       />
     </SafeAreaView>
   );

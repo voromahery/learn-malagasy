@@ -27,7 +27,7 @@ export default function ListItem({
 
   return (
     <SafeAreaView>
-      <TouchableOpacity onPress={handlePress} disabled={disabled}>
+      <TouchableOpacity onPress={handlePress} z disabled={disabled}>
         <View darkMode={darkMode} style={containerStyle}>
           <Text darkMode={darkMode} style={textStyle}>
             {text}

@@ -14,7 +14,8 @@ import ScreenModeIcon from '../../icons/screen-mode-icon.svg';
 
 import {LANGUAGE_NAMES} from '../../data/dataUtils';
 import categoriesData from '../../data/categories.json';
-export default function HomeScreen() {
+
+function HomeScreen({navigation}) {
   const dispatch = useDispatch();
   const [selectedLanguage, setSelectedLanguage] = useState(LANGUAGE_NAMES.EN);
   const [translatorLanguage, setTranslatorLanguage] = useState(
@@ -23,8 +24,6 @@ export default function HomeScreen() {
   const [headingText, setHeadingText] = useState('Select a category:');
 
   const switcher = useSelector(state => state.switchLanguage);
-
-  console.log(categoriesData);
 
   function changeLanguage() {
     if (switcher) {
@@ -77,14 +76,16 @@ export default function HomeScreen() {
       <View>
         <List
           headingText={headingText}
-          sections={[{data: categoriesData.categories}]}
+          data={categoriesData.categories}
           // darkMode={darkMode}
           renderItem={({item}) => {
             return (
               <ListItem
                 text={item.name[selectedLanguage]}
                 buttonText={switcher ? 'Hianatra' : 'Learn'}
-                handlePress={() => alert(item.name[selectedLanguage])}
+                handlePress={() =>
+                  navigation.navigate('LearningScreen', {item})
+                }
               />
             );
           }}
@@ -111,3 +112,5 @@ const styles = StyleSheet.create({
     marginRight: 10,
   },
 });
+
+export default HomeScreen;
