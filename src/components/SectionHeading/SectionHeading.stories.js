@@ -12,6 +12,6 @@ storiesOf('Section heading', module)
   ))
   .add('Long text', () => (
     <SectionHeading
-      text={'You have answered all the questions in this category'}
+      text={'You have answered all the questions in this category' /* This one does not work as the prop name is not updated */}
     />
   ));

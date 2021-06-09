@@ -24,7 +24,7 @@ export default function ListItem({
   const textStyle = darkMode
     ? [styles.textStyle, styles.darkModeText]
     : [styles.textStyle, styles.defaultText];
-
+  // What is z in line 30?
   return (
     <SafeAreaView>
       <TouchableOpacity onPress={handlePress} z disabled={disabled}>

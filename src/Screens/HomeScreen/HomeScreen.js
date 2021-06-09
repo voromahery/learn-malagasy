@@ -23,7 +23,7 @@ function HomeScreen({navigation}) {
   );
   const [headingText, setHeadingText] = useState('Select a category:');
 
-  const switcher = useSelector(state => state.switchLanguage);
+  const switcher = useSelector(state => state.switchLanguage); // To prepare for potentially having more languages in the future, you should consider replacing this boolean toggle with a global state that stores the current primary and secondary language
 
   function changeLanguage() {
     if (switcher) {
@@ -78,7 +78,7 @@ function HomeScreen({navigation}) {
           headingText={headingText}
           data={categoriesData.categories}
           // darkMode={darkMode}
-          renderItem={({item}) => {
+          renderItem={({item}) => { // choose different name for item to make clear what it is: a category
             return (
               <ListItem
                 text={item.name[selectedLanguage]}

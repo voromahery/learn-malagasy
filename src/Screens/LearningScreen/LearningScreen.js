@@ -43,7 +43,7 @@ function LearningScreen({route, navigation}) {
   const [buttonName, setButtonName] = useState('Next');
   const optionItem = route.params.item;
 
-  // Get random numbers
+  // Get random numbers => this is not optimal as there an be duplicates
   let randomIndex1 = Math.floor(Math.random() * optionItem.phrasesIds.length);
   let randomIndex2 = Math.floor(Math.random() * optionItem.phrasesIds.length);
   let randomIndex3 = Math.floor(Math.random() * optionItem.phrasesIds.length);
@@ -87,7 +87,7 @@ function LearningScreen({route, navigation}) {
       },
     ];
 
-    const randomizingAnswer = answersArray.sort(
+    const randomizingAnswer = answersArray.sort( // not really randomizing, but I like the idea, just change the name
       (a, b) => a.answer.mg.length - b.answer.en.length,
     );
     setAnswers(randomizingAnswer);
@@ -96,7 +96,7 @@ function LearningScreen({route, navigation}) {
       id: phrase1.id,
     });
     setIsDisabled(false);
-    setRandomPhrase({answer: phrase1.name, id: phrase1.id});
+    setRandomPhrase({answer: phrase1.name, id: phrase1.id}); // What is the differene to correctAnswer?
   }
 
   useEffect(() => {

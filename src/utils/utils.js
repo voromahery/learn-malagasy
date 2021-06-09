@@ -4,7 +4,7 @@ import {switchLanguage} from '../redux/actions/language';
 import phrasesData from '../data/phrases.json';
 import categoriesData from '../data/categories.json';
 import {LANGUAGE_NAMES} from '../data/dataUtils';
-
+// nice
 export const utilities = () => {
   const languageOption = LANGUAGE_NAMES;
   const categoriesList = categoriesData.categories;
