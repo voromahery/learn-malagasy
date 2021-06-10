@@ -1,10 +1,10 @@
 // components/Task.js
 import * as React from 'react';
 import {Text, View, Button, StyleSheet, TouchableOpacity} from 'react-native';
-// import { styles } from '../constants/globalStyles';
+// import { styles } from '../constants/globalStyles'; remove this 
 
 export default function NextButton({buttonText, disabled, handleNext}) {
-  const container = disabled
+  const container = disabled // I like this system a lot, would you mind presenting it to the class?
     ? [styles.commonButtonStyle, styles.disabledButton]
     : [styles.commonButtonStyle, styles.defaultButton];
 

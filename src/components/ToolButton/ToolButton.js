@@ -1,10 +1,10 @@
 // components/Task.js
 import * as React from 'react';
-import {View, StyleSheet, Image, TouchableOpacity} from 'react-native';
+import {View, StyleSheet, Image /* ? */, TouchableOpacity} from 'react-native';
 // import { styles } from '../constants/globalStyles';
 
 export default function ToolButton({toolAction, buttonIcon, darkMode}) {
-  let ButtonIcon = buttonIcon;
+  let ButtonIcon = buttonIcon; // Why is this necessary, why let?
   return (
     <View>
       <TouchableOpacity onPress={toolAction} style={styles.buttonStyle}>

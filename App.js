@@ -28,7 +28,7 @@ const App: () => Node = () => {
   );
 };
 
-const styles = StyleSheet.create({
+const styles = StyleSheet.create({ //unused
   sectionContainer: {
     marginTop: 32,
     paddingHorizontal: 24,

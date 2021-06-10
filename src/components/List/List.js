@@ -26,8 +26,8 @@ export default function List({
         keyExtractor={keyExtractor}
         style={container}
         disabled={disabled}
-        renderItem={renderItem}
-        keyExtractor={item => item.id}
+        renderItem={renderItem /* Using ListItem in here would have been fine as every list contains only list items */}
+        keyExtractor={item => item.id /* Duplicate */}
       />
     </SafeAreaView>
   );

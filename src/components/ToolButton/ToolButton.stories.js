@@ -17,7 +17,7 @@ storiesOf('Tool button', module)
       buttonIcon={AddIcon}
       toolAction={() => alert('Added an item')}
     />
-  ))
+  )) // It would be good to update this for the darkmode prop added in ToolButton.js
   .add('With check icon', () => (
     <ToolButton buttonIcon={CheckedIcon} toolAction={() => alert('Checked')} />
   ))
